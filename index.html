@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credit card</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="card" class="card">
+        <img src="./img/apple.svg" class="logo" alt="" />
+        <img src="./img/wifi.svg" alt="" srcset="" class="wave" />
+        <div id="number" class="number">2532 2532 2568 9426</div>
+        <div id="date" class="date"></div>
+        <div id="name" class="name">James Cameron</div>
+        <img src="./img/visa.svg" class="mark" alt="" />
+      </div>
+      <div id="card" class="card">
+        <img src="./img/apple.svg" class="logo" alt="" />
+        <img src="./img/wifi.svg" alt="" srcset="" class="wave" />
+        <div id="number" class="number">2532 2532 2568 9426</div>
+        <div id="date" class="date"></div>
+        <div id="name" class="name">James Cameron</div>
+        <img src="./img/visa.svg" class="mark" alt="" />
+      </div>
+      <div id="card" class="card">
+        <img src="./img/apple.svg" class="logo" alt="" />
+        <img src="./img/wifi.svg" alt="" srcset="" class="wave" />
+        <div id="number" class="number">2532 2532 2568 9426</div>
+        <div id="date" class="date"></div>
+        <div id="name" class="name">James Cameron</div>
+        <img src="./img/visa.svg" class="mark" alt="" />
+      </div>
+      <div id="card" class="card">
+        <img src="./img/apple.svg" class="logo" alt="" />
+        <img src="./img/wifi.svg" alt="" srcset="" class="wave" />
+        <div id="number" class="number">2532 2532 2568 9426</div>
+        <div id="date" class="date"></div>
+        <div id="name" class="name">James Cameron</div>
+        <img src="./img/visa.svg" class="mark" alt="" />
+      </div>
+      <div id="card" class="card">
+        <img src="./img/apple.svg" class="logo" alt="" />
+        <img src="./img/wifi.svg" alt="" srcset="" class="wave" />
+        <div id="number" class="number">2532 2532 2568 9426</div>
+        <div id="date" class="date"></div>
+        <div id="name" class="name">James Cameron</div>
+        <img src="./img/visa.svg" class="mark" alt="" />
+      </div>
+      <div id="card" class="card">
+        <img src="./img/apple.svg" class="logo" alt="" />
+        <img src="./img/wifi.svg" alt="" srcset="" class="wave" />
+        <div id="number" class="number">2532 2532 2568 9426</div>
+        <div id="date" class="date"></div>
+        <div id="name" class="name">James Cameron</div>
+        <img src="./img/visa.svg" class="mark" alt="" />
+      </div>
+    </div>
+    <div class="container">
+
+      <button id="b">Start</button>
+    </div>
+  </body>
+  <script type="text/javascript" src="./data.json"></script>
+  <script src="./app.js"></script>
+  <script>
+    b.addEventListener("click", start);
+    function start() {
+      for (k = 0; k < carte.length; k++) {
+        card(k);
+      }
+    }
+    function card(k) {
+      fetch("data.json")
+        .then((response) => response.json())
+        .then((data) => {
+          const n = getRandomInt(data.length);
+          var cString = "";
+          for (i = 0; i < data[n].colors.length; i++) {
+            cString += data[n].colors[i];
+            cString += ", ";
+          }
+          cString = cString.substr(0, cString.length - 2);
+          carte[k].style.background = "linear-gradient(10deg, " + cString + ")";
+        });
+
+      number[k].innerHTML = "";
+      for (o = 0; o < 4; o++) {
+        for (j = 0; j < 4; j++) {
+          number[k].innerHTML += getRandomInt(10);
+        }
+        number[k].innerHTML += " ";
+      }
+      date[k].innerHTML = getRandomInt(12) + 1 + " / " + (getRandomInt(5) + 20);
+      name[k].innerHTML = "";
+      name[k].innerHTML +=
+        er[getRandomInt(er.length - 1)] +
+        "  " +
+        er[getRandomInt(er.length - 1)];
+      name[k].innerHTML = name[k].textContent.toUpperCase();
+    }
+    start();
+  </script>
+</html>
